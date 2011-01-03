@@ -11,7 +11,7 @@
 	<key>CFBundleIconFile</key>
 	<string>iconLogo.png</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.jasonbrennan.${PRODUCT_NAME:identifier}</string>
+	<string>com.jasonbrennan.balancebook</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
