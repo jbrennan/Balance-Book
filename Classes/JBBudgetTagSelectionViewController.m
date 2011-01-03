@@ -60,7 +60,7 @@
 	if ([self.budgetItem.budgetTags containsObject:[dataController.tagItems objectAtIndex:indexPath.row]]) {
 		cell.accessoryType = UITableViewCellAccessoryCheckmark;
 	}
-	cell.text = [[dataController.tagItems objectAtIndex:indexPath.row] tagName];
+	cell.textLabel.text = [[dataController.tagItems objectAtIndex:indexPath.row] tagName];
 	return cell;
 }
 

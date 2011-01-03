@@ -53,10 +53,10 @@
 	
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
 	if (cell == nil) {
-		cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:MyIdentifier] autorelease];
+		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier] autorelease];
 	}
 	// Configure the cell
-	cell.text = [[[thePeople personList] objectAtIndex:indexPath.row] name];
+	cell.textLabel.text = [[[thePeople personList] objectAtIndex:indexPath.row] name];
 	return cell;
 }
 

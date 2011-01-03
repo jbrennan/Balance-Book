@@ -68,7 +68,7 @@
 	cell.accessoryView = theValueView;
 	
 	[theValueView release];
-	cell.text = theItem.transactionName;
+	cell.textLabel.text = theItem.transactionName;
 	return cell;
 }
 

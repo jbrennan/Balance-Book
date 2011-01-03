@@ -13,8 +13,8 @@
 @synthesize type;
 @synthesize name;
 
-- (id)initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier {
-    if (self = [super initWithFrame:frame reuseIdentifier:reuseIdentifier]) {
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         // Initialization code
 		type = [[UILabel alloc] initWithFrame:CGRectZero];
 		type.font = [UIFont boldSystemFontOfSize:12];

@@ -57,7 +57,7 @@
 	
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
 	if (cell == nil) {
-		cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:MyIdentifier] autorelease];
+		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier] autorelease];
 	}
 	// Configure the cell
 	JBTransactionItem *theItem = [transactionItems objectAtIndex:indexPath.row];
@@ -69,7 +69,7 @@
 	cell.accessoryView = theValueView;
 	
 	[theValueView release];
-	cell.text = theItem.transactionName;
+	cell.textLabel.text = theItem.transactionName;
 	return cell;
 }
 

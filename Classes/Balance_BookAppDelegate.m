@@ -10,6 +10,13 @@
 #import "JBBalanceViewController.h"
 
 
+@interface Balance_BookAppDelegate ()
+- (NSData *)applicationDataFromFile:(NSString *)fileName;
+- (BOOL)writeApplicationData:(NSData *)data toFile:(NSString *)fileName;
+@end
+
+
+
 @implementation Balance_BookAppDelegate
 
 @synthesize window;
@@ -25,12 +32,7 @@
 @synthesize bugReportViewController;
 
 
-- (id)init {
-	if (self = [super init]) {
-		// 
-	}
-	return self;
-}
+
 
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {

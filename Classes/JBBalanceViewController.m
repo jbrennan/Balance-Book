@@ -73,7 +73,7 @@
 																				 itemValue:itemValue];
 	cell.accessoryView = valueView;
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-	cell.text = [theItem transactionName];
+	cell.textLabel.text = [theItem transactionName];
 	
 	
 	return cell;

@@ -65,7 +65,7 @@
 	
 	// Configure the cell
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-	cell.text = [[dataController.tagItems objectAtIndex:indexPath.row] tagName];
+	cell.textLabel.text = [[dataController.tagItems objectAtIndex:indexPath.row] tagName];
 	return cell;
 }
 

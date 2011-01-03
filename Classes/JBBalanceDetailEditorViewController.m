@@ -68,16 +68,16 @@
 	if (indexPath.section == 0) {
 		return editingCell;
 	} else {
-		static NSString *Identifier = @"Identifier";
-		UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:Identifier];
+		static NSString *MyIdentifier = @"Identifier";
+		UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
 		if (cell == nil) {
-			cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:Identifier] autorelease];
+			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier] autorelease];
 		}
 		UISwitch *debitSwitch = [[UISwitch alloc] initWithFrame:CGRectZero];
 		debitSwitch.on = editingItem.transactionValue > 0 ? NO : YES;
 		cell.accessoryView = debitSwitch;
 		[debitSwitch release];
-		cell.text = @"Withdrawal";
+		cell.textLabel.text = @"Withdrawal";
 		return cell;
 	}
 	

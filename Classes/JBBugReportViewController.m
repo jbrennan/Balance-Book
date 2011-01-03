@@ -70,8 +70,8 @@
 		textView.text = @"Version 2008-10-30 \n";
 		[cell.contentView addSubview:textView];
 	} else {
-		cell.text = @"Email";
-		cell.textAlignment = UITextAlignmentCenter;
+		cell.textLabel.text = @"Email";
+		cell.textLabel.textAlignment = UITextAlignmentCenter;
 	}
     return cell;
 }

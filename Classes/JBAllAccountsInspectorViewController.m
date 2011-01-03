@@ -79,7 +79,7 @@
 	cell.accessoryView = theValueView;
 	
 	//[theValueView release];
-	cell.text = cellItem.transactionName;
+	cell.textLabel.text = cellItem.transactionName;
 	
 	//[cellItem release];
     return cell;

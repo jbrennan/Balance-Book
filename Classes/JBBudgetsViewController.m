@@ -100,7 +100,7 @@
 	JBTransactionValueView *valueView = [[JBTransactionValueView alloc] initWithImageNamed:imageName 
 																				 itemValue:imageValue];
 	cell.accessoryView = valueView;
-	cell.text = theBudget.budgetName;
+	cell.textLabel.text = theBudget.budgetName;
 	return cell;
 }
 

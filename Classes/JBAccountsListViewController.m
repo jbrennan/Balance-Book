@@ -77,8 +77,8 @@
 	// Configure the cell
 	if (indexPath.section == 0) {
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-		cell.textAlignment = UITextAlignmentCenter;
-		cell.text = [NSString stringWithFormat:@"Total: $%1.2f", [self balanceForAllAccounts]];
+		cell.textLabel.textAlignment = UITextAlignmentCenter;
+		cell.textLabel.text = [NSString stringWithFormat:@"Total: $%1.2f", [self balanceForAllAccounts]];
 	} else {
 		NSString *imageName = [[dataController.accountItems objectAtIndex:indexPath.row] accountBalance] < 0 ? @"ValueViewIconRedSmall.png" : @"ValueViewIconGreenSmall.png";
 		NSString *itemValue = [NSString stringWithFormat:@"%1.2f", [[dataController.accountItems objectAtIndex:indexPath.row] accountBalance]];
@@ -87,7 +87,7 @@
 																					 itemValue:itemValue];
 		cell.accessoryView = valueView;
 		[valueView release];
-		cell.text = [[dataController.accountItems objectAtIndex:indexPath.row] accountName];
+		cell.textLabel.text = [[dataController.accountItems objectAtIndex:indexPath.row] accountName];
 	}
 	return cell;
 }

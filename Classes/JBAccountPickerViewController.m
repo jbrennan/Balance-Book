@@ -37,11 +37,11 @@
 	
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
 	if (cell == nil) {
-		cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:MyIdentifier] autorelease];
+		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier] autorelease];
 	}
 	// Configure the cell
 	NSString *theName = [[dataController.accountItems objectAtIndex:indexPath.row] accountName];
-	cell.text = theName;
+	cell.textLabel.text = theName;
 	if ([editingItem.transactionAccount.accountName isEqualToString:theName]){
 		cell.accessoryType = UITableViewCellAccessoryCheckmark;
 	}
