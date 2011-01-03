@@ -1,0 +1,213 @@
+//
+//  JBAccountsListViewController.m
+//  Balance Book
+//
+//  Created by Jason Brennan on 08/09/08.
+//  Copyright 2008 Jason Brennan. All rights reserved.
+//
+
+#import "JBAccountsListViewController.h"
+
+
+@implementation JBAccountsListViewController
+@synthesize dataController;
+@synthesize accountEditor;
+@synthesize accountInspector;
+@synthesize allAccounts;
+@synthesize newAccount;
+
+- (id)initWithStyle:(UITableViewStyle)style {
+	if (self = [super initWithStyle:style]) {
+		self.title = @"Accounts";
+		UIBarButtonItem *addButton = [[UIBarButtonItem alloc] 
+									  initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
+									  target:self 
+									  action:@selector(addAction:)];
+		
+		self.navigationItem.rightBarButtonItem = addButton;
+		self.navigationItem.leftBarButtonItem = self.editButtonItem;
+		self.tableView.allowsSelectionDuringEditing = YES;
+		self.tabBarItem.image = [UIImage imageNamed:@"accounts.png"];
+	}
+	return self;
+}
+
+- (void)addAction:(id)sender {
+	JBAccountEditorViewController *ed = [[JBAccountEditorViewController alloc] initWithStyle:UITableViewStyleGrouped];
+	ed.dataController = self.dataController;
+	self.accountEditor = ed;
+	[ed release];
+	
+	[self.navigationController pushViewController:self.accountEditor animated:YES];
+}
+
+- (void)updateBalances {
+	for (JBAccount *a in dataController.accountItems) {
+		// for each account
+		a.calculateBalance;
+	}
+}
+
+- (double)balanceForAllAccounts {
+	double tally = 0.0;
+	for (JBAccount *a in dataController.accountItems) {
+		tally += a.accountBalance;
+	}
+	return tally;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+	return 2;
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+	return (section == 0) ? 1 : dataController.accountItems.count;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+	
+	static NSString *MyIdentifier = @"MyIdentifier";
+	
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
+	if (cell == nil) {
+		cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:MyIdentifier] autorelease];
+	}
+	// Configure the cell
+	if (indexPath.section == 0) {
+		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+		cell.textAlignment = UITextAlignmentCenter;
+		cell.text = [NSString stringWithFormat:@"Total: $%1.2f", [self balanceForAllAccounts]];
+	} else {
+		NSString *imageName = [[dataController.accountItems objectAtIndex:indexPath.row] accountBalance] < 0 ? @"ValueViewIconRedSmall.png" : @"ValueViewIconGreenSmall.png";
+		NSString *itemValue = [NSString stringWithFormat:@"%1.2f", [[dataController.accountItems objectAtIndex:indexPath.row] accountBalance]];
+		
+		JBTransactionValueView *valueView = [[JBTransactionValueView alloc] initWithImageNamed:imageName 
+																					 itemValue:itemValue];
+		cell.accessoryView = valueView;
+		[valueView release];
+		cell.text = [[dataController.accountItems objectAtIndex:indexPath.row] accountName];
+	}
+	return cell;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	//tapping total will take you to a list of all items ordered by account
+	//tapping an account reveals all items under that account
+	[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+	
+	if (indexPath.section == 0) {
+		if (dataController.accountItems.count) {
+			JBAllAccountsInspectorViewController *all = [[JBAllAccountsInspectorViewController alloc] initWithStyle:UITableViewStylePlain];
+			all.dataController = self.dataController;
+			self.allAccounts = all;
+			[all release];
+			
+			[self.navigationController pushViewController:self.allAccounts animated:YES];
+		}
+		
+	} else {
+		if (self.editing) {
+			if (!accountEditor) {
+				JBAccountEditorViewController *ed = [[JBAccountEditorViewController alloc] initWithStyle:UITableViewStyleGrouped];
+				ed.dataController = self.dataController;
+				self.accountEditor = ed;
+				[ed release];
+			}
+			accountEditor.editingItem = [dataController.accountItems objectAtIndex:indexPath.row];
+			[self.navigationController pushViewController:self.accountEditor animated:YES];	
+		} else {
+			JBAccountTransactionViewController *at = [[JBAccountTransactionViewController alloc] initWithStyle:UITableViewStylePlain];
+			at.inspectedAccount = [dataController.accountItems objectAtIndex:indexPath.row];
+			at.dataController = self.dataController;
+			self.accountInspector = at;
+			[at release];
+			
+			[self.navigationController pushViewController:self.accountInspector animated:YES];
+		}
+		
+	}
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+	if (section > 0) {
+		return @"Accounts";
+	}
+	else return nil;
+}
+
+- (UITableViewCellAccessoryType)tableView:(UITableView *)aTableView accessoryTypeForRowWithIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"Editing? %d", self.editing);
+	return (self.editing) ? UITableViewCellAccessoryDetailDisclosureButton : UITableViewCellAccessoryNone;
+}
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+	[super setEditing:editing animated:animated];	
+}
+
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+	
+	if (editingStyle == UITableViewCellEditingStyleDelete) {
+		[dataController.accountItems removeObjectAtIndex:indexPath.row];
+	}
+	if (editingStyle == UITableViewCellEditingStyleInsert) {
+	}
+	[self.tableView reloadData];
+}
+
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+	return indexPath.section > 0 ? YES : NO;
+}
+
+/*
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+ }
+ */
+/*
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+ return YES;
+ }
+ */
+
+
+- (void)dealloc {
+	[super dealloc];
+}
+
+
+- (void)viewDidLoad {
+	[super viewDidLoad];
+}
+
+
+- (void)viewWillAppear:(BOOL)animated {
+	[self updateBalances];
+	[self.tableView reloadData];
+	[super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+	[super viewDidAppear:animated];
+	if (newAccount) {
+		[self addAction:nil];
+		newAccount = NO;
+	}
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+}
+
+- (void)didReceiveMemoryWarning {
+	[super didReceiveMemoryWarning];
+}
+
+
+@end
+

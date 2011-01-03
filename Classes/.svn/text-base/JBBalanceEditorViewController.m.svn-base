@@ -1,0 +1,226 @@
+//
+//  JBBalanceEditorViewController.m
+//  Balance Book
+//
+//  Created by Jason Brennan on 08/09/08.
+//  Copyright 2008 Jason Brennan. All rights reserved.
+//
+
+#import "JBBalanceEditorViewController.h"
+
+
+@implementation JBBalanceEditorViewController
+@synthesize editingItem;
+@synthesize copyOfItem;
+@synthesize editingContent;
+@synthesize detailController;
+@synthesize tagSelector;
+@synthesize dataController;
+@synthesize accountPicker;
+
+- (id)initWithStyle:(UITableViewStyle)style {
+	if (self = [super initWithStyle:style]) {
+		
+		UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] 
+									   initWithBarButtonSystemItem:UIBarButtonSystemItemSave 
+									   target:self 
+									   action:@selector(save:)];
+		
+		self.navigationItem.rightBarButtonItem = saveButton;
+	}
+	return self;
+}
+
+- (void)save:(id)sender {
+	//if it's a new item, add it to the list of items
+	//else save changes (currently not implemented though)
+	
+	if (newItem) {
+		editingItem.transactionAccount = copyOfItem.transactionAccount;
+		editingItem.transactionDate = copyOfItem.transactionDate;
+		editingItem.transactionLocationCoordinates = copyOfItem.transactionLocationCoordinates;
+		editingItem.transactionLocationName = copyOfItem.transactionLocationName;
+		editingItem.transactionName = copyOfItem.transactionName;
+		editingItem.transactionValue = copyOfItem.transactionValue;
+		editingItem.tags = copyOfItem.tags;
+		[editingContent addObject:editingItem];
+		newItem = NO;
+	} else {
+		editingItem.transactionAccount = copyOfItem.transactionAccount;
+		editingItem.transactionDate = copyOfItem.transactionDate;
+		editingItem.transactionLocationCoordinates = copyOfItem.transactionLocationCoordinates;
+		editingItem.transactionLocationName = copyOfItem.transactionLocationName;
+		editingItem.transactionName = copyOfItem.transactionName;
+		editingItem.transactionValue = copyOfItem.transactionValue;
+		editingItem.tags = copyOfItem.tags;
+	}
+	
+	if (oldValue != editingItem.transactionValue){
+		editingItem.transactionAccount.accountBalance += (oldValue - editingItem.transactionValue);
+	}
+	[self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)setEditingItem:(JBTransactionItem *)anItem {
+	[editingItem release];
+	editingItem = [anItem retain];
+	JBTransactionItem *item = [[JBTransactionItem alloc] init];
+	item.transactionAccount = editingItem.transactionAccount;
+	item.transactionDate = editingItem.transactionDate;
+	item.transactionLocationCoordinates = editingItem.transactionLocationCoordinates;
+	item.transactionLocationName = editingItem.transactionLocationName;
+	item.transactionName = editingItem.transactionName;
+	item.transactionValue = editingItem.transactionValue;
+	item.tags = editingItem.tags;
+	
+	self.copyOfItem = item;
+	[item release];
+}
+
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+	return 1;
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+	return 5;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+	
+	static NSString *MyIdentifier = @"MyIdentifier";
+	
+	JBDetailCell *cell = (JBDetailCell *)[tableView dequeueReusableCellWithIdentifier:MyIdentifier];
+	if (cell == nil) {
+		cell = [[[JBDetailCell alloc] initWithFrame:CGRectZero reuseIdentifier:MyIdentifier] autorelease];
+	}
+	// Configure the cell
+	
+	// TODO: if it's a new item, should have placeholder text in the cell
+	switch (indexPath.row) {
+		case 0:
+			cell.type.text = @"Name";
+			cell.name.text = copyOfItem.transactionName;
+			break;
+		case 1:
+			cell.type.text = @"Amount";
+			cell.name.text = [NSString stringWithFormat:@"$%1.2f", copyOfItem.transactionValue];
+			break;
+		case 2:
+			cell.type.text = @"Account";
+			cell.name.text = copyOfItem.transactionAccount.accountName;
+			break;
+		case 3:
+			cell.type.text = @"Location";
+			cell.name.text = copyOfItem.transactionLocationName;
+			break;
+		case 4:
+			cell.type.text = @"Tags";
+			cell.name.text = [NSString stringWithFormat:@"%d", copyOfItem.tags.count];
+			break;
+	} 
+	
+	return cell;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	//tapping on a row will take you to a screen with a single cell and a save button
+	//that's how editing will work
+	[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+	JBBalanceDetailEditorViewController *aDetailEditor = [[JBBalanceDetailEditorViewController alloc] initWithStyle:UITableViewStyleGrouped];
+	
+	//determine which item is being edited..
+	switch (indexPath.row) {
+		case 0:
+			aDetailEditor.editingDetail = @"transactionName";
+			break;
+		case 1: {
+			aDetailEditor.editingDetail = @"transactionValue";
+			break;
+		}
+		case 2: {
+			//aDetailEditor.editingDetail = @"accountName";
+			JBAccountPickerViewController *ap = [[JBAccountPickerViewController alloc] initWithStyle:UITableViewStylePlain];
+			ap.dataController = self.dataController;
+			ap.editingItem = self.copyOfItem;
+			self.accountPicker = ap;
+			[ap release];
+			
+			[self.navigationController pushViewController:self.accountPicker animated:YES];
+			return;
+			break;
+		}
+		case 3:
+			aDetailEditor.editingDetail = @"transactionLocationName";
+			break;
+		case 4: {
+			if (self.copyOfItem.tags == nil) {
+				
+				self.copyOfItem.tags = [[NSMutableArray alloc] init];
+			}
+			JBTagSelectionViewController *aController = [[JBTagSelectionViewController alloc] initWithStyle:UITableViewStylePlain];
+			aController.dataController = self.dataController;
+			aController.transactionItem = self.copyOfItem;
+			self.tagSelector = aController;
+			[aController release];
+			[self.navigationController pushViewController:self.tagSelector animated:YES];
+			return;
+		}
+			break;
+	}
+	aDetailEditor.editingItem = self.copyOfItem;
+	self.detailController = aDetailEditor;
+	[aDetailEditor release];
+	[self.navigationController pushViewController:self.detailController animated:YES];
+}
+
+
+- (void)dealloc {
+	[super dealloc];
+}
+
+
+- (void)viewDidLoad {
+	oldValue = editingItem.transactionValue;
+	[super viewDidLoad];
+}
+
+
+- (void)viewWillAppear:(BOOL)animated {
+	
+	//flag used to tell save: we have a new item to be added to the list.
+	if (editingItem == nil) {
+		JBTransactionItem *item = [[JBTransactionItem alloc] init];
+		self.editingItem = item;
+		[item release];
+		newItem = YES;
+	}
+	if (!newItem) {
+		self.title = @"Item";
+	} else {
+		self.title = @"New Item";
+	}
+	[self.tableView reloadData];
+	[super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+	[super viewDidAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+}
+
+- (void)didReceiveMemoryWarning {
+	[super didReceiveMemoryWarning];
+}
+
+
+@end
+

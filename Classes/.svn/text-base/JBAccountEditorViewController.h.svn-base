@@ -1,0 +1,26 @@
+//
+//  JBAccountEditorViewController.h
+//  Balance Book
+//
+//  Created by Jason Brennan on 23/09/08.
+//  Copyright 2008 Jason Brennan. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import "JBAccount.h"
+#import "JBDataController.h"
+#import "JBAccountDetailEditorViewController.h"
+#import "JBDetailCell.h"
+
+@interface JBAccountEditorViewController : UITableViewController {
+	JBAccount *editingItem;
+	JBDataController *dataController; //TODO: this isn't right!
+	JBAccountDetailEditorViewController *detailEditor;
+	
+	BOOL newItem;
+}
+@property (nonatomic, retain) JBAccount *editingItem;
+@property (nonatomic, retain) JBDataController *dataController;
+@property (nonatomic, retain) JBAccountDetailEditorViewController *detailEditor;
+
+@end

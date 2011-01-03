@@ -1,0 +1,425 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/jasonbrennan_balancebook/!svn/ver/1/Balance%20Book/Classes
+END
+JBDataController.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/jasonbrennan_balancebook/!svn/ver/1/Balance%20Book/Classes/JBDataController.h
+END
+JBBugReportViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/jasonbrennan_balancebook/!svn/ver/16/Balance%20Book/Classes/JBBugReportViewController.m
+END
+Balance_BookAppDelegate.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/jasonbrennan_balancebook/!svn/ver/19/Balance%20Book/Classes/Balance_BookAppDelegate.h
+END
+JBTagSelectionViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/jasonbrennan_balancebook/!svn/ver/1/Balance%20Book/Classes/JBTagSelectionViewController.h
+END
+JBBudgetEditorViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/jasonbrennan_balancebook/!svn/ver/21/Balance%20Book/Classes/JBBudgetEditorViewController.h
+END
+JBBudgetTagSelectionViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/jasonbrennan_balancebook/!svn/ver/1/Balance%20Book/Classes/JBBudgetTagSelectionViewController.m
+END
+JBDataController.m
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/jasonbrennan_balancebook/!svn/ver/1/Balance%20Book/Classes/JBDataController.m
+END
+Balance_BookAppDelegate.m
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/jasonbrennan_balancebook/!svn/ver/22/Balance%20Book/Classes/Balance_BookAppDelegate.m
+END
+JBBalanceViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/jasonbrennan_balancebook/!svn/ver/19/Balance%20Book/Classes/JBBalanceViewController.h
+END
+JBTagSelectionViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/jasonbrennan_balancebook/!svn/ver/1/Balance%20Book/Classes/JBTagSelectionViewController.m
+END
+JBBudgetEditorViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/jasonbrennan_balancebook/!svn/ver/21/Balance%20Book/Classes/JBBudgetEditorViewController.m
+END
+JBBalanceViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/jasonbrennan_balancebook/!svn/ver/22/Balance%20Book/Classes/JBBalanceViewController.m
+END
+JBAccountEditorViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/jasonbrennan_balancebook/!svn/ver/21/Balance%20Book/Classes/JBAccountEditorViewController.h
+END
+JBTagDetailEditor.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/jasonbrennan_balancebook/!svn/ver/1/Balance%20Book/Classes/JBTagDetailEditor.h
+END
+JBAccountEditorViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/jasonbrennan_balancebook/!svn/ver/21/Balance%20Book/Classes/JBAccountEditorViewController.m
+END
+JBTagDetailEditor.m
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/jasonbrennan_balancebook/!svn/ver/1/Balance%20Book/Classes/JBTagDetailEditor.m
+END
+JBTransactionValueView.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/jasonbrennan_balancebook/!svn/ver/1/Balance%20Book/Classes/JBTransactionValueView.h
+END
+JBAccountsViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/jasonbrennan_balancebook/!svn/ver/1/Balance%20Book/Classes/JBAccountsViewController.h
+END
+JBBudgetTransactionItemsViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/jasonbrennan_balancebook/!svn/ver/22/Balance%20Book/Classes/JBBudgetTransactionItemsViewController.h
+END
+NamesListViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/jasonbrennan_balancebook/!svn/ver/1/Balance%20Book/Classes/NamesListViewController.h
+END
+JBTransactionValueView.m
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/jasonbrennan_balancebook/!svn/ver/15/Balance%20Book/Classes/JBTransactionValueView.m
+END
+JBAccountsViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/jasonbrennan_balancebook/!svn/ver/1/Balance%20Book/Classes/JBAccountsViewController.m
+END
+JBBudgetTransactionItemsViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/jasonbrennan_balancebook/!svn/ver/22/Balance%20Book/Classes/JBBudgetTransactionItemsViewController.m
+END
+NamesListViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/jasonbrennan_balancebook/!svn/ver/15/Balance%20Book/Classes/NamesListViewController.m
+END
+JBAccountPickerViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/jasonbrennan_balancebook/!svn/ver/4/Balance%20Book/Classes/JBAccountPickerViewController.h
+END
+JBTagsViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/jasonbrennan_balancebook/!svn/ver/1/Balance%20Book/Classes/JBTagsViewController.h
+END
+JBAccountPickerViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/jasonbrennan_balancebook/!svn/ver/4/Balance%20Book/Classes/JBAccountPickerViewController.m
+END
+JBTagsViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/jasonbrennan_balancebook/!svn/ver/22/Balance%20Book/Classes/JBTagsViewController.m
+END
+JBBudgetDetailEditorViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/jasonbrennan_balancebook/!svn/ver/1/Balance%20Book/Classes/JBBudgetDetailEditorViewController.h
+END
+RootViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/jasonbrennan_balancebook/!svn/ver/1/Balance%20Book/Classes/RootViewController.h
+END
+EditingCell.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/jasonbrennan_balancebook/!svn/ver/1/Balance%20Book/Classes/EditingCell.h
+END
+JBBudgetDetailEditorViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/jasonbrennan_balancebook/!svn/ver/19/Balance%20Book/Classes/JBBudgetDetailEditorViewController.m
+END
+RootViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/jasonbrennan_balancebook/!svn/ver/1/Balance%20Book/Classes/RootViewController.m
+END
+EditingCell.m
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/jasonbrennan_balancebook/!svn/ver/18/Balance%20Book/Classes/EditingCell.m
+END
+JBBalanceDetailEditorViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/jasonbrennan_balancebook/!svn/ver/1/Balance%20Book/Classes/JBBalanceDetailEditorViewController.h
+END
+JBBalanceDetailEditorViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/jasonbrennan_balancebook/!svn/ver/18/Balance%20Book/Classes/JBBalanceDetailEditorViewController.m
+END
+JBAccountDetailEditorViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/jasonbrennan_balancebook/!svn/ver/1/Balance%20Book/Classes/JBAccountDetailEditorViewController.h
+END
+JBAccountDetailEditorViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/jasonbrennan_balancebook/!svn/ver/19/Balance%20Book/Classes/JBAccountDetailEditorViewController.m
+END
+iconLogo.png
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/jasonbrennan_balancebook/!svn/ver/16/Balance%20Book/Classes/iconLogo.png
+END
+JBBalanceEditorViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/jasonbrennan_balancebook/!svn/ver/21/Balance%20Book/Classes/JBBalanceEditorViewController.h
+END
+ValueViewIconRed.png
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/jasonbrennan_balancebook/!svn/ver/1/Balance%20Book/Classes/ValueViewIconRed.png
+END
+JBBudgetsViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/jasonbrennan_balancebook/!svn/ver/15/Balance%20Book/Classes/JBBudgetsViewController.h
+END
+JBAllAccountsInspectorViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/jasonbrennan_balancebook/!svn/ver/22/Balance%20Book/Classes/JBAllAccountsInspectorViewController.h
+END
+PersonController.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/jasonbrennan_balancebook/!svn/ver/1/Balance%20Book/Classes/PersonController.h
+END
+JBTaggedTransactionViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/jasonbrennan_balancebook/!svn/ver/22/Balance%20Book/Classes/JBTaggedTransactionViewController.h
+END
+JBBalanceEditorViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/jasonbrennan_balancebook/!svn/ver/22/Balance%20Book/Classes/JBBalanceEditorViewController.m
+END
+JBBudgetsViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/jasonbrennan_balancebook/!svn/ver/22/Balance%20Book/Classes/JBBudgetsViewController.m
+END
+JBAllAccountsInspectorViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/jasonbrennan_balancebook/!svn/ver/22/Balance%20Book/Classes/JBAllAccountsInspectorViewController.m
+END
+PersonController.m
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/jasonbrennan_balancebook/!svn/ver/1/Balance%20Book/Classes/PersonController.m
+END
+NewPersonViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/jasonbrennan_balancebook/!svn/ver/1/Balance%20Book/Classes/NewPersonViewController.h
+END
+JBTaggedTransactionViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/jasonbrennan_balancebook/!svn/ver/22/Balance%20Book/Classes/JBTaggedTransactionViewController.m
+END
+NewPersonViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/jasonbrennan_balancebook/!svn/ver/15/Balance%20Book/Classes/NewPersonViewController.m
+END
+JBBudget.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/jasonbrennan_balancebook/!svn/ver/18/Balance%20Book/Classes/JBBudget.h
+END
+JBAccountsListViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/jasonbrennan_balancebook/!svn/ver/19/Balance%20Book/Classes/JBAccountsListViewController.h
+END
+JBTag.h
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/jasonbrennan_balancebook/!svn/ver/1/Balance%20Book/Classes/JBTag.h
+END
+JBAccountsListViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/jasonbrennan_balancebook/!svn/ver/22/Balance%20Book/Classes/JBAccountsListViewController.m
+END
+JBBudget.m
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/jasonbrennan_balancebook/!svn/ver/18/Balance%20Book/Classes/JBBudget.m
+END
+JBTag.m
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/jasonbrennan_balancebook/!svn/ver/1/Balance%20Book/Classes/JBTag.m
+END
+ValueViewIconGreen.png
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/jasonbrennan_balancebook/!svn/ver/1/Balance%20Book/Classes/ValueViewIconGreen.png
+END
+Person.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/jasonbrennan_balancebook/!svn/ver/1/Balance%20Book/Classes/Person.h
+END
+JBAccount.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/jasonbrennan_balancebook/!svn/ver/18/Balance%20Book/Classes/JBAccount.h
+END
+ValueViewIconYellow.png
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/jasonbrennan_balancebook/!svn/ver/1/Balance%20Book/Classes/ValueViewIconYellow.png
+END
+Person.m
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/jasonbrennan_balancebook/!svn/ver/1/Balance%20Book/Classes/Person.m
+END
+JBAccount.m
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/jasonbrennan_balancebook/!svn/ver/18/Balance%20Book/Classes/JBAccount.m
+END
+JBDetailCell.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/jasonbrennan_balancebook/!svn/ver/21/Balance%20Book/Classes/JBDetailCell.h
+END
+JBTransactionItem.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/jasonbrennan_balancebook/!svn/ver/18/Balance%20Book/Classes/JBTransactionItem.h
+END
+JBDetailCell.m
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/jasonbrennan_balancebook/!svn/ver/21/Balance%20Book/Classes/JBDetailCell.m
+END
+JBBugReportViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/jasonbrennan_balancebook/!svn/ver/16/Balance%20Book/Classes/JBBugReportViewController.h
+END
+JBTransactionItem.m
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/jasonbrennan_balancebook/!svn/ver/18/Balance%20Book/Classes/JBTransactionItem.m
+END
+JBBudgetTagSelectionViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/jasonbrennan_balancebook/!svn/ver/1/Balance%20Book/Classes/JBBudgetTagSelectionViewController.h
+END

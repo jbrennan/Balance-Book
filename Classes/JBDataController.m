@@ -1,0 +1,51 @@
+//
+//  DataController.m
+//  Balance Book
+//
+//  Created by Jason Brennan on 08/09/08.
+//  Copyright 2008 Jason Brennan. All rights reserved.
+//
+
+#import "JBDataController.h"
+
+
+@implementation JBDataController
+@synthesize transactionItems;
+@synthesize accountItems;
+@synthesize tagItems;
+@synthesize budgetItems;
+@synthesize dataControllerVersion;
+
+- (id)init {
+	if (self = [super init]) {
+		self.transactionItems = [[NSMutableArray alloc] init];
+		self.accountItems = [[NSMutableArray alloc] init];
+		self.tagItems = [[NSMutableArray alloc] init];
+		self.budgetItems = [[NSMutableArray alloc] init];
+	}
+	return self;
+}
+
+- (id)initWithCoder:(NSCoder *)coder {
+	if (self = [super init]) {
+		self.transactionItems = [coder decodeObjectForKey:@"transactionItems"];
+		self.accountItems = [coder decodeObjectForKey:@"accountItems"];
+		self.tagItems = [coder decodeObjectForKey:@"tagItems"];
+		self.budgetItems = [coder decodeObjectForKey:@"budgetItems"];
+	}
+	return self;
+}
+
+
+- (void)encodeWithCoder:(NSCoder *)coder {
+	[coder encodeObject:transactionItems forKey:@"transactionItems"];
+	[coder encodeObject:accountItems forKey:@"accountItems"];
+	[coder encodeObject:tagItems forKey:@"tagItems"];
+	[coder encodeObject:budgetItems forKey:@"budgetItems"];
+}
+
+- (NSString *)dataControllerVersion {
+	return @"1.0.0";
+}
+
+@end

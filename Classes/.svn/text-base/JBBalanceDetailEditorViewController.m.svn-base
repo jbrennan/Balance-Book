@@ -1,0 +1,96 @@
+//
+//  JBBalanceDetailEditorViewController.m
+//  Balance Book
+//
+//  Created by Jason Brennan on 09/09/08.
+//  Copyright 2008 Jason Brennan. All rights reserved.
+//
+
+#import "JBBalanceDetailEditorViewController.h"
+
+
+@implementation JBBalanceDetailEditorViewController
+@synthesize editingItem;
+@synthesize editingDetail;
+@synthesize editingCell;
+
+- (id)initWithStyle:(UITableViewStyle)style {
+	if (self = [super initWithStyle:style]) {
+		self.title = @"Edit";
+		UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] 
+									   initWithBarButtonSystemItem:UIBarButtonSystemItemSave 
+									   target:self 
+									   action:@selector(save:)];
+		
+		self.navigationItem.rightBarButtonItem = saveButton;
+	}
+	return self;
+}
+
+- (void)save:(id)sender {
+	[editingItem setValue:editingCell.textField.text forKey:editingDetail];
+	
+	[self.navigationController popViewControllerAnimated:YES];
+}
+
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+	return 1;
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+	return 1;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+	return editingCell;
+}
+
+
+- (void)dealloc {
+	[super dealloc];
+}
+
+
+- (void)viewDidLoad {
+	[super viewDidLoad];
+}
+
+
+- (void)viewWillAppear:(BOOL)animated {
+	// Set up the editor cell.
+	editingCell = [[EditingCell alloc] initWithFrame:CGRectZero reuseIdentifier:@"detailCell"];
+	
+	
+	// Because the value is a double and not an object...
+	if ([editingDetail isEqualToString:@"transactionValue"]) {
+		editingCell.textField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+		NSString *value = [NSString stringWithFormat:@"%1.2f", editingItem.transactionValue];
+		editingCell.textField.text = value;
+	} else {
+		editingCell.textField.text = [editingItem valueForKey:editingDetail];
+	}
+	
+	[editingCell.textField becomeFirstResponder];
+	[super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+	[super viewDidAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+}
+
+- (void)didReceiveMemoryWarning {
+	[super didReceiveMemoryWarning];
+}
+
+
+@end
+
