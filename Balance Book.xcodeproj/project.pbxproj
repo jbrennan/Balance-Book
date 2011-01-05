@@ -53,7 +53,6 @@
 		DA9C2AD30E95CABA00FFE2C6 /* ValueViewIconYellowSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = DA9C2AD00E95CABA00FFE2C6 /* ValueViewIconYellowSmall.png */; };
 		DA9C2AD40E95CABA00FFE2C6 /* ValueViewIconGreenSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = DA9C2AD10E95CABA00FFE2C6 /* ValueViewIconGreenSmall.png */; };
 		DA9D76F30EB8D69700B12DA9 /* JBDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9D76F20EB8D69700B12DA9 /* JBDetailCell.m */; };
-		DAA189F50EAE4F5300618D81 /* iconSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = DAA189F40EAE4F5300618D81 /* iconSmall.png */; };
 		DAA8F8730E857A1800214CAC /* JBBudgetDetailEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA8F8720E857A1800214CAC /* JBBudgetDetailEditorViewController.m */; };
 		DAA8F8D20E86FDB100214CAC /* JBBudgetTagSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA8F8D10E86FDB100214CAC /* JBBudgetTagSelectionViewController.m */; };
 		DAAF0E430EB62A8300BD5221 /* JBAllAccountsInspectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAF0E420EB62A8300BD5221 /* JBAllAccountsInspectorViewController.m */; };
@@ -142,7 +141,6 @@
 		DA9C2AD10E95CABA00FFE2C6 /* ValueViewIconGreenSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ValueViewIconGreenSmall.png; sourceTree = "<group>"; };
 		DA9D76F10EB8D69700B12DA9 /* JBDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBDetailCell.h; sourceTree = "<group>"; };
 		DA9D76F20EB8D69700B12DA9 /* JBDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBDetailCell.m; sourceTree = "<group>"; };
-		DAA189F40EAE4F5300618D81 /* iconSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconSmall.png; sourceTree = "<group>"; };
 		DAA8F8710E857A1800214CAC /* JBBudgetDetailEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBBudgetDetailEditorViewController.h; sourceTree = "<group>"; };
 		DAA8F8720E857A1800214CAC /* JBBudgetDetailEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBBudgetDetailEditorViewController.m; sourceTree = "<group>"; };
 		DAA8F8D00E86FDB100214CAC /* JBBudgetTagSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBBudgetTagSelectionViewController.h; sourceTree = "<group>"; };
@@ -199,7 +197,6 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				DAA189F40EAE4F5300618D81 /* iconSmall.png */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -409,7 +406,6 @@
 				DA9C2AD40E95CABA00FFE2C6 /* ValueViewIconGreenSmall.png in Resources */,
 				DAB4792F0EAD23BB00AF1842 /* Entitlements.plist in Resources */,
 				DAB4796D0EAD542F00AF1842 /* iconLogo.png in Resources */,
-				DAA189F50EAE4F5300618D81 /* iconSmall.png in Resources */,
 				DA024FBA0EC3B48500629EAF /* x.png in Resources */,
 				DA024FCB0EC3B69600629EAF /* tags.png in Resources */,
 				DA024FD90EC3B81E00629EAF /* budgets.png in Resources */,
@@ -475,6 +471,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Balance_Book_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = Info.plist;
 				PRODUCT_NAME = "Balance Book";
 			};
@@ -487,6 +484,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Balance_Book_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = Info.plist;
 				PRODUCT_NAME = "Balance Book";
 			};
@@ -553,6 +551,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Balance_Book_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = Info.plist;
 				PRODUCT_NAME = "Balance Book";
 			};

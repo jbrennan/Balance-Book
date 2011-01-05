@@ -13,6 +13,7 @@
 @interface Balance_BookAppDelegate ()
 - (NSData *)applicationDataFromFile:(NSString *)fileName;
 - (BOOL)writeApplicationData:(NSData *)data toFile:(NSString *)fileName;
+- (void)cleanup;
 @end
 
 
@@ -33,9 +34,7 @@
 
 
 
-
-
-- (void)applicationDidFinishLaunching:(UIApplication *)application {
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	NSData *readData = [self applicationDataFromFile:@"save"];
 	JBDataController *aDataController = [NSKeyedUnarchiver unarchiveObjectWithData:readData];
 	
@@ -43,20 +42,6 @@
 		aDataController = [[JBDataController alloc] init];
 		NSLog(@"First time startup, creating new DataController");
 		firstLaunch = YES;
-		/*
-		JBTransactionItem *item = [[JBTransactionItem alloc] initWithDemoData];
-		JBAccount *account = [[JBAccount alloc] initWithDemoData];
-		[aDataController.accountItems addObject:account];
-		[aDataController.transactionItems addObject:item];
-		
-		JBTag *tag1 = [[JBTag alloc] initWithName:@"entertainment"];
-		JBTag *tag2 = [[JBTag alloc] initWithName:@"junk food"];
-		[aDataController.tagItems addObject:tag1];
-		[aDataController.tagItems addObject:tag2];
-		
-		JBBudget *budget1 = [[JBBudget alloc] initWithName:@"Entertainment"	amount:70 interval:[NSDate date] tags:nil account:@"CIBC"];
-		[aDataController.budgetItems addObject:budget1];
-		 */
 	}
 	
 	
@@ -113,10 +98,38 @@
 	// Configure and show the window
 	[window addSubview:[tabBarController view]];
 	[window makeKeyAndVisible];
+
+	
+	return YES;
+}
+
+
+- (void)applicationWillResignActive:(UIApplication *)application {
+	
+}
+
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+	
+}
+
+
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+	
+}
+
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+	[self cleanup];
 }
 
 
 - (void)applicationWillTerminate:(UIApplication *)application {
+	[self cleanup];
+}
+
+
+- (void)cleanup {
 	// Save data if appropriate
 	NSData *dataToSave = [NSKeyedArchiver archivedDataWithRootObject:dataController];
 	[self writeApplicationData:dataToSave toFile:@"save"];
